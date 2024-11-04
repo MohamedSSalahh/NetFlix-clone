@@ -6,9 +6,9 @@ import { auth } from "./firebase";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Home = React.lazy(() => import("./routing/pages/home/Home"));
+const Home = React.lazy(() => import("./routing/pages/Home/Home"));
 const Login = React.lazy(() => import("./routing/pages/Login/Login"));
-const Player = React.lazy(() => import("./routing/pages/player/Player"));
+const Player = React.lazy(() => import("./routing/pages/Player/Player"));
 
 export default function App() {
   const navigate = useNavigate();
