@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import logo from "../../../assets/logo.png";
 import "./login.css";
 import { login, signup } from "../../../firebase";
- import netflix_spinner from "../../assets/netflix_spinner.gif"
+ import netflix_spinner from "./netflix_spinner.gif"
 function Login() {
   const [signState, setSignState] = useState("Sign In");
   const [name, setName] = useState("");

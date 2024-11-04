@@ -1,34 +1,40 @@
-import React, { useEffect } from "react";
+// App.js
+import React, { Suspense, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-
-import Home from "./routing/pages/home/Home";
-import Login from "./routing/pages/login/Login";
-import Player from "./routing/pages/player/Player";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const Home = React.lazy(() => import("./routing/pages/home/Home"));
+const Login = React.lazy(() => import("./routing/pages/Login/Login"));
+const Player = React.lazy(() => import("./routing/pages/player/Player"));
+
 export default function App() {
   const navigate = useNavigate();
+
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         console.log("Logged In");
         navigate("/");
       } else {
-        console.log("logged Out");
+        console.log("Logged Out");
         navigate("/login");
       }
     });
-  },[]);
+  }, [navigate]);
+
   return (
     <div>
-        <ToastContainer theme="dark"/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/player/:id" element={<Player />} />
-      </Routes>
+      <ToastContainer theme="dark" />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/player/:id" element={<Player />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
