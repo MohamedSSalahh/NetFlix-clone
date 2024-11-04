@@ -1,0 +1,160 @@
+/* Navbar.css */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+    height: 70px;
+    z-index: 50;
+    transition: all 0.3s ease;
+    background: transparent;
+  }
+  
+  .nav-dark {
+    background-color: #141414;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-left img {
+    height: 25px;
+    margin-right: 2rem;
+  }
+  
+  .navbar-left ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    
+  }
+  
+  .navbar-left li {
+    color:white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-left li a{
+    color: #e5e5e5;
+  }
+  
+  .navbar-left li:hover {
+    color: #b3b3b3;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .navbar-right .icons {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  .navbar-right p {
+    color: #e5e5e5;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .navbar-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    cursor: pointer;
+  }
+   
+  .navbar-profile .profile {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+  }
+  
+  .navbar-profile img:last-child {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-profile.active img:last-child {
+    transform: rotate(180deg);
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    padding: 18px 10px;
+    display: none;
+    z-index: 1;
+  }
+  
+  .navbar-profile:hover .dropdown {
+    display: block;
+  }
+  
+  .dropdown p {
+    padding: 10px 20px;
+    color: #e5e5e5;
+    font-size: 13px;
+  }
+  
+  .dropdown p:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }  
+
+  @media (max-width:800px){
+    .navbar{
+      padding: 20px 4%;
+
+    }
+    .navbar-left ul{
+      display: none;
+
+    }
+    .navbar img{
+      height: 25px;
+    }
+  }
+
+  @media(max-width:500px){
+    .navbar img{
+      height:20px;
+    }
+    .navbar-right{
+      gap: 10px;
+    }
+  }
