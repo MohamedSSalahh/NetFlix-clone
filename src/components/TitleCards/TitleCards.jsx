@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./TitleCards.css";
+import "./Titlecards.css";
 import { Link } from "react-router-dom";
 
 const TitleCards = ({ title, category }) => {
